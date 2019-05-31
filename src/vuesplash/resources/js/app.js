@@ -27,12 +27,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// ルーティングの定義をインポートする
 import router from './router'
+// ルートコンポーネントをインポートする
 import App from './App.vue'
 
 const app = new Vue({
   el: '#app',
-  router,
-  components: { App },
-  template: '<App />'
+  router,  // ルーティングの定義を読み込む
+  components: { App },  // ルートコンポーネントの使用を宣言する
+  template: '<App />'  // ルートコンポーネントを描画する
 })
