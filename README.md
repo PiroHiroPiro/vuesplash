@@ -1,6 +1,6 @@
-# Laravel + Nginx + MySQL + Redis Docker Template
+# Vuesplash
 
-This is a Docker template that provides an environment with Laravel, Nginx, MySQL and Redis.
+This is a sample application using Laravel, Vue, Vue Router and Vuex.
 
 ## Requirement
 
@@ -15,15 +15,15 @@ Run server:
 $ docker-compose up
 ```
 
-Go to `http://localhost:80` and you'll see the website.
+Go to `http://localhost` and you'll see the website.
 
 ## Install
 
 Clone repository:
 
 ```console
-$ git clone https://github.com/PiroHiroPiro/docker_template_laravel_fastcgi_nginx_mysql_redis.git
-$ cd docker_template_laravel_fastcgi_nginx_mysql_redis
+$ git clone https://github.com/PiroHiroPiro/vuesplash.git
+$ cd vuesplash
 ```
 
 Copy env files:
@@ -31,35 +31,14 @@ Copy env files:
 ```console
 $ cp ./docker/php/.env.example ./docker/php/.env
 $ cp ./docker/mysql/.env.example ./docker/mysql/.env
+$ cp ./src/vuesplash/.env.example ./src/vuesplash/.env
 ```
 
-Enter the database name and root user password in the copied env files `./docker/php/.env` and `docker/mysql/.env`:
-
-Create new rails application:
-
-```console
-$ docker-compose exec php laravel new project
-```
-
-Change project name:
-
-```./docker/nginx/conf/default.conf
-...
-root /src/project/public;
-...
-```
+Enter the database name and root user password in the copied env files `./docker/php/.env`, `./docker/mysql/.env` and `./src/vuesplash/.env`:
 
 Build images:
 
 ```console
-$ docker network create laravel_network
+$ docker network create vuesplash_network
 $ docker-compose build
 ```
-
-## Licence
-
-This software is released under the MIT License, see [LICENSE](https://github.com/PiroHiroPiro/docker_template_laravel_fastcgi_nginx_mysql_redis/blob/master/LICENSE).
-
-## Author
-
-[Hiroyuki Nishizawa](https://github.com/PiroHiroPiro)
