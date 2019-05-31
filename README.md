@@ -42,3 +42,11 @@ Build images:
 $ docker network create vuesplash_network
 $ docker-compose build
 ```
+
+Install packages:
+
+```console
+$ docker-compose run php npm install
+/src# cd /src/vuesplash
+/src/vuesplash# npm install
+```
