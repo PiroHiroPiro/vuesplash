@@ -32,6 +32,7 @@ import router from './router'
 import store from './store'
 // ルートコンポーネントをインポートする
 import App from './App.vue'
+import './bootstrap'
 
 const app = new Vue({
     el: '#app',
