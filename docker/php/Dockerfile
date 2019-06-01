@@ -4,8 +4,12 @@ RUN apt-get update -y --fix-missing \
     && apt-get install -y --no-install-recommends \
     libzip-dev \
     zlib1g-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
     && docker-php-ext-install \
-    zip
+    zip \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd
 
 # https://getcomposer.org/download/
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -31,9 +35,12 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get update -y --fix-missing \
     && apt-get install -y --no-install-recommends nodejs
 
-RUN pecl install -o -f redis \
+RUN composer global require predis/predis \
+    && pecl install -o -f redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable \
     redis
+
+RUN composer global require league/flysystem-aws-s3-v3
 
 WORKDIR /src
