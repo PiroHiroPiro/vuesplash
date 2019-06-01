@@ -41,6 +41,8 @@ RUN composer global require predis/predis \
     && docker-php-ext-enable \
     redis
 
+WORKDIR /src/vuesplash
+
 RUN composer global require league/flysystem-aws-s3-v3
 
 WORKDIR /src
