@@ -11,7 +11,7 @@ export function getCookieValue (searchKey) {
     let val = '';
 
     document.cookie.split(';').forEach(cookie => {
-        const [key, value] = cookie.split('=');
+        const [key, value] = cookie.trim().split('=');
         if (key === searchKey) {
             return val = value
         }
