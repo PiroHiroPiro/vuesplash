@@ -34,7 +34,7 @@ $ cp ./docker/mysql/.env.example ./docker/mysql/.env
 $ cp ./src/vuesplash/.env.example ./src/vuesplash/.env
 ```
 
-Enter the database name and root user password in the copied env files `./docker/php/.env`, `./docker/mysql/.env` and `./src/vuesplash/.env`:
+Enter the database name, root password, username, password, aws access key, aws secret key and aws bucket name in the copied env files `./docker/php/.env`, `./docker/mysql/.env` and `./src/vuesplash/.env`:
 
 Build images:
 
